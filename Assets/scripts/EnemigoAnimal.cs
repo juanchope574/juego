@@ -14,12 +14,22 @@ public class EnemigoAnimal : MonoBehaviour
     public int daño = 10;
     public float tiempoEntreAtaques = 1.5f;
 
+    [Header("Movimiento")]
+    public float velocidad = 12f;
+    public float aceleracion = 30f;
+    public float velocidadAngular = 500f;
+
     private NavMeshAgent agente;
     private float tiempoSiguienteAtaque;
 
     void Start()
     {
         agente = GetComponent<NavMeshAgent>();
+
+        // CONFIGURACIÓN DE VELOCIDAD
+        agente.speed = velocidad;
+        agente.acceleration = aceleracion;
+        agente.angularSpeed = velocidadAngular;
 
         if (jugador == null)
         {
