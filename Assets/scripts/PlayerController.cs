@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
         Move();
         Look();
         Animate();
+        Attacks();
     }
 
     public void OnMove(InputValue value)
@@ -47,11 +48,11 @@ public class PlayerController : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
 
             if (animator != null)
+            {
                 animator.SetTrigger("Jump");
+            }
         }
     }
-
-
 
     void Move()
     {
@@ -64,10 +65,20 @@ public class PlayerController : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
 
-        bool isRunningNow = Keyboard.current.leftShiftKey.isPressed;
-        float currentSpeed = isRunningNow ? 60f : speed;
+        bool corriendo = Keyboard.current.leftShiftKey.isPressed;
 
-        controller.Move(move * currentSpeed * Time.deltaTime);
+        float velocidadActual;
+
+        if (corriendo)
+        {
+            velocidadActual = 60f;
+        }
+        else
+        {
+            velocidadActual = speed;
+        }
+
+        controller.Move(move * velocidadActual * Time.deltaTime);
         controller.Move(velocity * Time.deltaTime);
     }
 
@@ -76,14 +87,38 @@ public class PlayerController : MonoBehaviour
         float mouseX = lookInput.x * sensitivity * Time.deltaTime;
 
         yRotation += mouseX;
+
         transform.rotation = Quaternion.Euler(0f, yRotation, 0f);
     }
 
     void Animate()
     {
-        if (animator == null) return;
+        if (animator == null)
+        {
+            return;
+        }
 
         animator.SetFloat("VelX", moveInput.x);
         animator.SetFloat("VelY", moveInput.y);
+    }
+
+    void Attacks()
+    {
+        if (animator == null)
+        {
+            return;
+        }
+
+        // PATADA CON Q
+        if (Keyboard.current.qKey.wasPressedThisFrame)
+        {
+            animator.SetTrigger("Patada");
+        }
+
+        // GOLPE CON E
+        if (Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            animator.SetTrigger("Golpe");
+        }
     }
 }
