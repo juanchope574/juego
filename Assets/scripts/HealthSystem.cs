@@ -60,12 +60,28 @@ public class HealthSystem : MonoBehaviour
         Debug.Log("Jugador murió");
 
         // Desactivar movimiento (si tienes script de movimiento)
-        // GetComponent<PlayerMovement>().enabled = false;
+        //GetComponent<PlayerMovement>().enabled = false;
 
         // Opción 1: Reiniciar escena
         // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         // Opción 2: Solo desactivar jugador
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+
+        // Desactivar control del jugador
+        GetComponent<PlayerController>().enabled = false;
+
+        // Llamar al GameOverManager
+        GameOverManager gm = FindFirstObjectByType<GameOverManager>();
+
+        if (gm != null)
+        {
+            Debug.Log("GameOverManager encontrado");
+            gm.ActivarGameOver();
+        }
+        else
+        {
+            Debug.Log("NO se encontró GameOverManager");
+        }
     }
 }
