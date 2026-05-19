@@ -84,4 +84,10 @@ public class HealthSystem : MonoBehaviour
             Debug.Log("NO se encontró GameOverManager");
         }
     }
+
+    public void InstantKill()
+    {
+        currentHealth = 0;
+        Die();
+    }
 }
