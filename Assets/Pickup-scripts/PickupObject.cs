@@ -47,23 +47,26 @@ public class PickupObject : MonoBehaviour
         }
     }
 
-    void Drop()
-    {
-        Rigidbody rb = heldObject.GetComponent<Rigidbody>();
+  void Drop()
+{
+    Rigidbody rb = heldObject.GetComponent<Rigidbody>();
 
-        heldObject.transform.SetParent(null);
+    heldObject.transform.SetParent(null);
 
-        Vector3 dropPosition = transform.position + transform.forward * 1f;
-        dropPosition.y = transform.position.y + 0.5f;
+    Vector3 dropPosition = transform.position + transform.forward * 1f;
+    dropPosition.y = transform.position.y + 0.5f;
 
-        heldObject.transform.position = dropPosition;
+    heldObject.transform.position = dropPosition;
 
-        rb.isKinematic = false;
-        rb.detectCollisions = true;
-        rb.useGravity = true;
+    rb.isKinematic = false;
+    rb.detectCollisions = true;
+    rb.useGravity = true;
 
-        heldObject = null;
-    }
+    // lanzar lejos hacia enfrente y un poco hacia arriba
+    rb.AddForce((transform.forward + Vector3.up * 0.4f) * 15f, ForceMode.Impulse);
+
+    heldObject = null;
+}
 
     private void OnTriggerEnter(Collider other)
     {

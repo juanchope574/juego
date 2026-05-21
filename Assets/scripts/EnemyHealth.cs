@@ -8,9 +8,12 @@ public class EnemyHealth : MonoBehaviour
 
     public Slider barraVida;
 
+    public GameObject puerta;
+
     void Start()
     {
         vidaActual = vidaMaxima;
+
         barraVida.maxValue = vidaMaxima;
         barraVida.value = vidaActual;
     }
@@ -18,6 +21,7 @@ public class EnemyHealth : MonoBehaviour
     public void RecibirDanio(int danio)
     {
         vidaActual -= danio;
+
         barraVida.value = vidaActual;
 
         if (vidaActual <= 0)
@@ -26,8 +30,20 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    void Morir()
+  void Morir()
+{
+    Debug.Log("El enemigo murió");
+
+    if (puerta != null)
     {
-        Destroy(gameObject);
+        Debug.Log("Sí encontró la puerta");
+        puerta.SetActive(false);
     }
+    else
+    {
+        Debug.Log("NO hay puerta asignada en el Inspector");
+    }
+
+    Destroy(gameObject);
+}
 }
