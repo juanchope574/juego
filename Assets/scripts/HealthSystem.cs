@@ -90,4 +90,18 @@ public class HealthSystem : MonoBehaviour
         currentHealth = 0;
         Die();
     }
+
+    public void Respawn(Vector3 checkpointPosition)
+    {
+        currentHealth = maxHealth;
+
+        if (healthSlider != null)
+            healthSlider.value = currentHealth;
+
+        transform.position = checkpointPosition;
+
+        gameObject.SetActive(true);
+
+        isDead = false;
+    }
 }

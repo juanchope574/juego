@@ -4,6 +4,8 @@ public class GameOverManager : MonoBehaviour
 {
     public GameObject panelGameOver;
     public MonoBehaviour playerController;
+    public HealthSystem playerHealth;
+    public Transform checkpoint;
 
     public void ActivarGameOver()
     {
@@ -20,14 +22,23 @@ public class GameOverManager : MonoBehaviour
     public void Reiniciar()
     {
         Time.timeScale = 1f;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(
-            UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+
+        panelGameOver.SetActive(false);
+
+        playerHealth.Respawn(checkpoint.position);
+
+        playerController.enabled = true;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
     }
 
     public void VolverMenu()
     {
         Time.timeScale = 1f;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MenuPrincipal");
     }
 
     void Start()
