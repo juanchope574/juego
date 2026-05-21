@@ -26,6 +26,8 @@ public class MainMenuController : MonoBehaviour
 
     public void IniciarJuego()
     {
+        Time.timeScale = 1f; //este elemento es para que vuelva a hacer usable el boton de pausa
+
         panelMenu.SetActive(false);
 
         camaraMenu.SetActive(false);
@@ -39,6 +41,23 @@ public class MainMenuController : MonoBehaviour
         Debug.Log("Botón presionado");
 
         StartCoroutine(FadeAndStart());
+
+        Debug.Log("Botón presionado");
+
+        // Desactivar menú visual
+        if (panelMenu != null)
+            panelMenu.SetActive(false);
+
+        // Desactivar cámara del menú
+        if (camaraMenu != null)
+            camaraMenu.SetActive(false);
+
+        // Activar cámara del juego
+        if (camaraJuego != null)
+            camaraJuego.SetActive(true);
+
+        // Asegurar que el tiempo esté normal
+        Time.timeScale = 1f;
     }
 
     IEnumerator FadeAndStart()
