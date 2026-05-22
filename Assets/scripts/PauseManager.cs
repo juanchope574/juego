@@ -53,6 +53,6 @@ public class PauseManager : MonoBehaviour
     public void GoToMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MenuPrincipal");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
@@ -38,7 +39,7 @@ public class GameOverManager : MonoBehaviour
     public void VolverMenu()
     {
         Time.timeScale = 1f;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MenuPrincipal");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
     }
 
     void Start()
