@@ -9,6 +9,7 @@ public class MainMenuController : MonoBehaviour
     public GameObject panelMenu;
     public GameObject creditosPanel;
     public GameObject salirPanel;
+    public GameObject opcionesPanel;
 
     public GameObject menuPrincipal;
 
@@ -119,5 +120,19 @@ public class MainMenuController : MonoBehaviour
         Application.Quit();
 
         Debug.Log("El juego se cerró");
+    }
+
+    public void AbrirOpciones()
+    {
+        menuPrincipal.SetActive(false);
+
+        opcionesPanel.SetActive(true);
+    }
+
+    public void CerrarOpciones()
+    {
+        opcionesPanel.SetActive(false);
+
+        menuPrincipal.SetActive(true);
     }
 }
