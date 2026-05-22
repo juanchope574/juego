@@ -8,6 +8,7 @@ public class MainMenuController : MonoBehaviour
     public GameObject camaraJuego;
     public GameObject panelMenu;
     public GameObject creditosPanel;
+    public GameObject salirPanel;
 
     public GameObject menuPrincipal;
 
@@ -97,5 +98,26 @@ public class MainMenuController : MonoBehaviour
         creditosPanel.SetActive(false);
 
         menuPrincipal.SetActive(true);
+    }
+
+    public void AbrirSalir()
+    {
+        menuPrincipal.SetActive(false);
+
+        salirPanel.SetActive(true);
+    }
+
+    public void CerrarSalir()
+    {
+        salirPanel.SetActive(false);
+
+        menuPrincipal.SetActive(true);
+    }
+
+    public void SalirJuego()
+    {
+        Application.Quit();
+
+        Debug.Log("El juego se cerró");
     }
 }
