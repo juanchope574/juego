@@ -53,6 +53,9 @@ public class PauseManager : MonoBehaviour
     public void GoToMenu()
     {
         Time.timeScale = 1f;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
+
+        pausePanel.SetActive(false);
+
+        SceneManager.LoadScene("SampleScene");
     }
 }
