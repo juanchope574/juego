@@ -7,6 +7,9 @@ public class MainMenuController : MonoBehaviour
     public GameObject camaraMenu;
     public GameObject camaraJuego;
     public GameObject panelMenu;
+    public GameObject creditosPanel;
+
+    public GameObject menuPrincipal;
 
     public GameObject jugador;
     public MonoBehaviour playerController; // arrastraremos el script aquí
@@ -80,5 +83,19 @@ public class MainMenuController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    public void AbrirCreditos()
+    {
+        creditosPanel.SetActive(true);
+
+        menuPrincipal.SetActive(false);
+    }
+
+    public void CerrarCreditos()
+    {
+        creditosPanel.SetActive(false);
+
+        menuPrincipal.SetActive(true);
     }
 }
