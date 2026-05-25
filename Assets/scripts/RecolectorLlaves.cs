@@ -1,17 +1,23 @@
+
 using UnityEngine;
 
 public class RecolectorLlaves : MonoBehaviour
 {
-    public int llavesRecolectadas = 0;
+    public int llaves = 0;
+
+    // Referencia a la puerta
+    public PuertaBloqueada puerta;
 
     public void AgregarLlave()
     {
-        llavesRecolectadas++;
-        Debug.Log("Llaves recolectadas: " + llavesRecolectadas);
-    }
+        llaves++;
 
-    public bool TieneTresLlaves()
-    {
-        return llavesRecolectadas >= 3;
+        Debug.Log("Llaves recogidas: " + llaves);
+
+        // Si tiene 3 llaves abre la puerta
+        if (llaves >= 3)
+        {
+            puerta.AbrirPuerta();
+        }
     }
 }
