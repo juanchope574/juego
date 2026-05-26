@@ -33,7 +33,8 @@ public class GameOverManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
+       //SceneManagement.SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void VolverMenu()
