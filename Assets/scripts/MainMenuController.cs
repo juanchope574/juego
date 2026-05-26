@@ -10,6 +10,7 @@ public class MainMenuController : MonoBehaviour
     public GameObject creditosPanel;
     public GameObject salirPanel;
     public GameObject opcionesPanel;
+    public GameObject controlesPanel;
 
     public GameObject menuPrincipal;
 
@@ -132,6 +133,20 @@ public class MainMenuController : MonoBehaviour
     public void CerrarOpciones()
     {
         opcionesPanel.SetActive(false);
+
+        menuPrincipal.SetActive(true);
+    }
+
+    public void AbrirControles()
+    {
+        controlesPanel.SetActive(true);
+
+        menuPrincipal.SetActive(false);
+    }
+
+    public void CerrarControles()
+    {
+        controlesPanel.SetActive(false);
 
         menuPrincipal.SetActive(true);
     }
