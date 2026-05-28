@@ -7,8 +7,9 @@ public class KeyManager : MonoBehaviour
     [Header("Cantidad de llaves")]
     public int keys = 0;
 
-    [Header("Objeto que bloquea")]
+    [Header("Objetos que bloquean")]
     public GameObject ramas;
+    public GameObject objeto2;
 
     private void Awake()
     {
@@ -24,9 +25,11 @@ public class KeyManager : MonoBehaviour
         // Cuando tenga 3 llaves
         if (keys >= 3)
         {
+            // Desaparecen los objetos
             ramas.SetActive(false);
+            objeto2.SetActive(false);
 
-            Debug.Log("Las ramas desaparecieron");
+            Debug.Log("Los objetos desaparecieron");
         }
     }
 }

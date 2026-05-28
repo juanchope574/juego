@@ -40,7 +40,7 @@ public class GameOverManager : MonoBehaviour
     public void VolverMenu()
     {
         Time.timeScale = 1f;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("scenavieja");
     }
 
     void Start()

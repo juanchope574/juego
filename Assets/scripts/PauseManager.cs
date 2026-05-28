@@ -20,7 +20,7 @@ public class PauseManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Detectó ESC");
+            Debug.Log("Detectï¿½ ESC");
             if (isPaused)
             {
                 Resume();
@@ -56,6 +56,6 @@ public class PauseManager : MonoBehaviour
 
         pausePanel.SetActive(false);
 
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("scenavieja");
     }
 }

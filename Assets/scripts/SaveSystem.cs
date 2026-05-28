@@ -9,6 +9,15 @@ public class SaveSystem : MonoBehaviour
         CargarPartida();
     }
 
+    void Update()
+    {
+        // Presiona R para borrar el guardado
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            BorrarPartida();
+        }
+    }
+
     public void GuardarPartida()
     {
         PlayerPrefs.SetFloat("PlayerX", player.position.x);
@@ -45,5 +54,14 @@ public class SaveSystem : MonoBehaviour
 
             Debug.Log("Partida cargada");
         }
+    }
+
+    public void BorrarPartida()
+    {
+        PlayerPrefs.DeleteKey("PlayerX");
+        PlayerPrefs.DeleteKey("PlayerY");
+        PlayerPrefs.DeleteKey("PlayerZ");
+
+        Debug.Log("Partida borrada");
     }
 }
